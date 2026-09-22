@@ -1,33 +1,34 @@
-WTC-ND3P4B9M
-
 # Cybersecurity Basics Lab
 
-A beginner-friendly cybersecurity project focused on Linux fundamentals, system administration, networking, access control, and basic security practices.
+**WTC Project ID:** WTC-ND3P4B9M
 
-This project documents my practical learning journey as I build foundational cybersecurity skills.
+## About
 
-## About the Project
+This is my Cybersecurity solo project for WeThinkCode_.
 
-The purpose of this project is to develop practical cybersecurity knowledge by investigating and documenting fundamental concepts rather than only studying theory.
+The project focuses on practical cybersecurity fundamentals using a Windows computer with Git Bash as the command-line environment.
 
-Each section contains commands, observations, explanations, and security relevance based on practical exercises.
+The goal was to investigate systems, users, permissions, networking and basic security controls through practical exercises.
 
-The project is being completed using a Windows computer with Git Bash as the current command-line environment.
+## Project Goals
 
-## Learning Objectives
+* Understand basic cybersecurity concepts
+* Investigate users and groups
+* Understand file permissions
+* Learn basic networking concepts
+* Perform basic system security checks
+* Apply basic security hardening
+* Understand least privilege and access control
+* Document security findings
+* Use Git and GitHub to track technical work
 
-Through this project, I aim to develop an understanding of:
+## Environment
 
-* Linux and Unix-like environments
-* Users and groups
-* File permissions
-* Basic networking
-* System security checks
-* Security hardening
-* Access control
-* Security documentation
-* Basic troubleshooting
-* Git and GitHub for documenting technical work
+The project was performed on a Windows computer using Git Bash.
+
+This is important because Git Bash provides a Unix-like command-line environment but is not the same as running a native Linux operating system.
+
+Some standard Linux files and commands therefore behaved differently during the investigation.
 
 ## Project Structure
 
@@ -43,57 +44,65 @@ cybersecurity-basics-lab/
 │   └── README.md
 │
 ├── 03-file-permissions/
+│   ├── README.md
+│   └── test-data.txt
+│
+├── 04-network-basics/
 │   └── README.md
 │
-└── 04-network-basics/
+├── 05-security-checks/
+│   └── README.md
+│
+├── 06-security-hardening/
+│   └── README.md
+│
+├── 07-security-findings/
+│   └── README.md
+│
+├── 08-security-testing/
+│   └── README.md
+│
+└── 09-security-summary/
     └── README.md
 ```
 
-## Completed Investigations
+## Investigations
 
 ### 01 — Linux Environment
 
-Investigated the command-line environment and learned how to identify the current user, working directory, and basic system information.
+I investigated the command-line environment and learned how to identify:
 
-Commands explored include:
+* Current user
+* Working directory
+* User and group information
+* Available system information
+
+Commands included:
 
 ```bash
 whoami
 pwd
 ls
 id
-cat /etc/os-release
 ```
 
-An important observation was that the project is currently being performed through Git Bash on Windows rather than a native Linux installation. This affects which Linux files and commands are available.
-
----
+I also investigated `/etc/os-release` and observed that the standard Linux file was not available because the project was being performed through Git Bash on Windows.
 
 ### 02 — Users and Groups
 
-Investigated how users and groups are represented in the command-line environment.
-
-Commands explored include:
+I investigated user and group information using:
 
 ```bash
 whoami
 groups
 id
-cat /etc/passwd
-cat /etc/group
 ```
 
-The exercise demonstrated the importance of user and group identity in access control.
-
-Some standard Linux files were unavailable because the current environment is Git Bash on Windows.
-
----
+This demonstrated the importance of user identity and group membership when controlling access to resources.
 
 ### 03 — File Permissions
 
-Investigated file permissions and how they control access to files.
-
-The exercise explored:
+I investigated file permissions using:
 
 ```bash
 ls -l
@@ -103,18 +112,14 @@ chmod
 A test file was created and its permissions were changed using:
 
 ```bash
-chmod 600 secret.txt
+chmod 600 test-data.txt
 ```
 
-This demonstrated how permissions can be used to restrict access to sensitive files.
-
----
+This demonstrated how permissions can restrict access to files.
 
 ### 04 — Basic Network Investigation
 
-Investigated basic network configuration, connectivity and DNS.
-
-Commands explored include:
+I investigated basic network configuration, connectivity and DNS using:
 
 ```bash
 hostname
@@ -123,119 +128,149 @@ ping
 nslookup
 ```
 
-The investigation demonstrated how IP addresses, gateways, DNS and network connectivity are related.
+The investigation demonstrated the relationship between IP addresses, gateways, DNS and network connectivity.
 
-It also showed that command syntax can differ between Windows and Linux environments.
+### 05 — Security Checks
 
-## Security Concepts
+I performed basic security checks using:
 
-The project currently focuses on the following fundamental security concepts:
+```bash
+whoami
+whoami /priv
+tasklist
+netstat -ano
+```
 
-### Identity
+These commands provided information about the current user, privileges, running processes and network connections.
 
-Understanding which user account is operating a system or command-line session.
+### 06 — Security Hardening
 
-### Access Control
+I created a private directory and restricted its permissions using:
 
-Understanding how users, groups and permissions determine access to resources.
+```bash
+chmod 700 private
+```
+
+This demonstrated the principle of least privilege by restricting access to the directory.
+
+### 07 — Security Findings
+
+I documented the security observations from the previous investigations.
+
+Key findings included:
+
+* File permissions can restrict access to resources.
+* User and group identity affects access control.
+* Network information is important during security investigations.
+* System processes and network connections can provide useful security information.
+* Security settings should be reviewed and tested after changes.
+
+### 08 — Security Testing
+
+I tested the security hardening changes to confirm that the intended user could still access the protected directory and file.
+
+The testing demonstrated that security controls should be verified after they are applied.
+
+### 09 — Security Summary
+
+The final investigation summary brought together the main cybersecurity concepts explored throughout the project.
+
+## Security Principles
 
 ### Least Privilege
 
-Giving users only the access they need can reduce unnecessary access to system resources.
+Users should have only the permissions required to perform their tasks.
 
-### Network Awareness
+### Access Control
 
-Understanding basic IP addressing, DNS, gateways and connectivity is important when investigating network-related problems.
+Access to files and resources should be controlled through appropriate permissions and user identities.
+
+### System Awareness
+
+Understanding users, processes, network connections and system configuration is important when investigating security.
 
 ### Security Hardening
 
-Future exercises will investigate basic methods of reducing unnecessary exposure and improving system security.
+Reducing unnecessary access and exposure can improve the security of a system.
+
+### Verification
+
+Security changes should be tested to confirm that they work as intended.
 
 ## Methodology
 
-Each investigation follows a practical learning process:
+Each exercise followed a practical learning process:
 
 ```text
 Investigate
-     ↓
+    ↓
 Run commands
-     ↓
+    ↓
 Observe results
-     ↓
+    ↓
 Understand what happened
-     ↓
+    ↓
 Document findings
-     ↓
+    ↓
 Identify security relevance
-     ↓
+    ↓
+Test changes
+    ↓
 Commit changes
 ```
 
-The goal is not simply to execute commands, but to understand why they are being used and what their results mean.
+The goal was to understand the commands and their results rather than simply execute commands without understanding them.
 
-## Git Workflow
+## What I Learned
 
-Git is used to track the development of this project.
+Through this project I developed practical experience with:
 
-Each completed investigation is committed separately so that the project history shows the progression of my learning.
-
-Example:
-
-```bash
-git add .
-git commit -m "Document basic network investigation"
-git push
-```
+* Command-line environments
+* Windows/Git Bash
+* Users and groups
+* File permissions
+* Networking fundamentals
+* DNS
+* System security checks
+* Security hardening
+* Access control
+* Least privilege
+* Troubleshooting
+* Technical documentation
+* Git and GitHub
 
 ## Responsible Use
 
-All security exercises in this repository are performed on systems and files that I am authorised to access.
+All security exercises were performed on systems and files that I was authorised to access.
 
 The project focuses on defensive security fundamentals, system administration and controlled experimentation.
 
-Sensitive information such as private IP addresses and other personally identifying network information should not be published in the repository.
-
-## Current Progress
-
-* [x] Linux environment investigation
-* [x] Users and groups investigation
-* [x] File permissions investigation
-* [x] Basic network investigation
-* [ ] Basic security checks
-* [ ] Security hardening
-* [ ] Document security findings
-* [ ] Test security changes
-* [ ] Improve project documentation
-* [ ] Create project demonstration
-
-## Skills Being Developed
-
-* Linux command line
-* Windows/Git Bash
-* File permissions
-* Users and groups
-* Networking fundamentals
-* DNS fundamentals
-* Basic system security
-* Troubleshooting
-* Technical documentation
-* Git
-* GitHub
+Sensitive information such as credentials, private network information and other personal information should not be published in the repository.
 
 ## Future Improvements
 
-As my cybersecurity knowledge improves, this project will be expanded with additional practical exercises covering areas such as:
+As my cybersecurity knowledge develops, possible future areas of study include:
 
-* System security checks
-* Network troubleshooting
-* Security configuration
-* Access control
-* Log analysis
-* Basic security monitoring
 * Linux administration
+* Log analysis
+* Security monitoring
+* Network troubleshooting
+* Access control
+* System hardening
+* Cloud security
 
-The complexity of the exercises will increase as I develop a stronger understanding of the fundamentals.
+These areas are outside the scope of this beginner project.
 
-## Learning Goal
+## Project Status
 
-The long-term goal of this project is to build a practical foundation for pursuing further studies and entry-level opportunities in cybersecurity, Linux/system administration, cloud security and related technology roles.
+**Completed**
+
+The project has covered basic cybersecurity investigation, access control, networking, security checks, security hardening, findings and testing.
+
+The next stage is to demonstrate the project and explain the practical lessons learned.
+
+## Learning Approach
+
+The project was developed incrementally with genuine Git commits documenting the progression of the work.
+
+The focus was on understanding the relationship between technical actions and their security implications.
